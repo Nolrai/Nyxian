@@ -48,6 +48,8 @@ build-type:         Simple
 -- Extra doc files to be distributed with the package, such as a CHANGELOG or a README.
 extra-doc-files:    CHANGELOG.md
 
+common warnings
+    ghc-options: -Wall -Werror -Wcompat -Wno-unused-imports -Wno-unused-matches -Wno-unused-top-binds -Wno-orphans
 
 library
     import:           warnings
@@ -62,9 +64,6 @@ executable Nyxian-exe
     hs-source-dirs:   app
     default-language: Haskell2010
     build-depends:    base ^>=4.21.0.0, Nyxian
-
-common warnings
-    ghc-options: -Wall
 
 test-suite Nyxian-test
     -- Import common warning flags.
