@@ -53,16 +53,27 @@ common warnings
 
 library
     import:           warnings
-    exposed-modules:   Nyxian.Lib
+    exposed-modules:
+        Nyxian.Types,
+        Nyxian.Util,
+        Nyxian.Gen
     hs-source-dirs:    src
-    default-language:  Haskell2010
-    build-depends:     base ^>=4.21.0.0
+    default-language:  GHC2021
+    build-depends:
+        base ^>=4.21.0.0,
+        finitary >=2.0.0,
+        splitmix,
+        parallel ^>= 3.2.2.0,
+        mtl >= 2.3.1,
+        random ^>= 1.3.1,
+        ansi-terminal ^>= 1.1.3,
+        containers ^>= 0.7,
 
-executable Nyxian-exe
+executable nyxian
     import:           warnings
     main-is:          Main.hs
     hs-source-dirs:   app
-    default-language: Haskell2010
+    default-language: GHC2021
     build-depends:    base ^>=4.21.0.0, Nyxian
 
 test-suite Nyxian-test
@@ -70,7 +81,7 @@ test-suite Nyxian-test
     import:           warnings
 
     -- Base language which the package is written in.
-    default-language: Haskell2010
+    default-language: GHC2021
 
     -- Modules included in this executable, other than Main.
     -- other-modules:
